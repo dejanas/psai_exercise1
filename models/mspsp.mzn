@@ -105,7 +105,7 @@ constraint forall(a in ACT, r in USEFUL_RES[a], s in SKILL where sreq[a,s]>0) (
 
 % Basic Searches
 ann: start_s = int_search(start, first_fail, indomain_min, complete);
-%ann: overlap_s = int_search(overlap, largest, indomain_min, complete);
+% ann: overlap_s = int_search(overlap, largest, indomain_min, complete);
 ann: assign_s = bool_search([ assign[a,r] | a in ACT, r in RESOURCE ],
                            input_order, indomain_max, complete);
                          
@@ -114,19 +114,17 @@ ann: contrib_s = bool_search([ contrib[a,r,s]
                            input_order, indomain_max, complete);
 
 % Sequencial Searches
-ann: assign_Then_start = seq_search([ assign_s, start_s ]);
-ann: contrib_Then_start = seq_search([ contrib_s, start_s ]);
-ann: start_Then_assign = seq_search([ start_s, assign_s ]);
-ann: start_Then_contrib = seq_search([ start_s, contrib_s ]);
+% ann: assign_Then_start = seq_search([ assign_s, start_s ]);
+% ann: contrib_Then_start = seq_search([ contrib_s, start_s ]);
+% ann: start_Then_assign = seq_search([ start_s, assign_s ]);
+% ann: start_Then_contrib = seq_search([ start_s, contrib_s ]);
 %ann: overlap_Then_assign_Then_start = 
 %              seq_search([ overlap_s, assign_s, start_s ]);
 %ann: overlap_Then_contrib_Then_start = 
 %              seq_search([ overlap_s, contrib_s, start_s ]);         
                   
 
-
-
-ann: my_search;
+ann: my_search = assign_s;
 
 % Solve
 solve :: my_search
