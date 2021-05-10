@@ -3,9 +3,9 @@ from minizinc import Instance, Model, Solver
 
 def main():
     # Load mpsp model from file
-    mpsp = Model("models\mspsp.mzn")
+    mpsp = Model("models\parameter_model.mzn")
     # Add instance file
-    mpsp.add_file("instances\set-a\inst_set1a_sf0_nc1.5_n20_m10_00.dzn")
+    mpsp.add_file("instances\set-a\inst_set1a_sf0_nc1.5_n40_m30_00.dzn")
     # Find the MiniZinc solver configuration for chuffed keywoard
     chuffed = Solver.lookup("chuffed")
     # Create an Instance of the mpsp model for Chuffed
