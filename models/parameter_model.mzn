@@ -105,8 +105,7 @@ constraint forall(a in ACT, r in USEFUL_RES[a], s in SKILL where sreq[a,s]>0) (
 
 % ------------------------------------- SEARCH STRATEGIES -------------------------------------%
 
-ann: start_search = int_search(
-    , first_fail, indomain_min, complete);
+ann: start_search = int_search(start, first_fail, indomain_min, complete);
 % ann: assign_search = bool_search([ assign[a,r] | a in ACT, r in RESOURCE ],
                           %  input_order, indomain_max, complete);
 % ann: contrib_search = bool_search([ contrib[a,r,s] 
