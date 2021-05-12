@@ -1,4 +1,4 @@
-import minizinc
+mport minizinc
 from minizinc import Instance, Model, Solver
 from datetime import datetime
 
